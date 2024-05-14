@@ -19,7 +19,8 @@ services:
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     ports:
-      - 5432:5432
+      - ${PORT}:${PORT}
+    command: ["postgres", "-c", "listen_addresses=*", "-c", "port=${PORT}"]
 
   python_container:
     container_name: 'python_container'
