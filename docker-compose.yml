@@ -35,7 +35,7 @@ services:
       - ./.env:/.env
     depends_on:
       - postgis
-    command: sh -c "pip install -r /scripts/python/requirements.txt && python /scripts/python/init.py"
+    command: sh -c "pip install -r /scripts/python/requirements.txt && python /scripts/python/init.py & sleep infinity"
     
 
 

@@ -58,3 +58,5 @@ def update_log():
 generate_current_state()
 compare_states()
 update_log()
+
+print (f'Init finalizado.')
