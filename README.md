@@ -27,4 +27,6 @@ PORT=
 ```
 ---
 La Metadata / Amenazas / Topologias se deben guardar en la carpeta "data" (Se pueden crear subcarpetas para organizar mejor).
+Hasta ahora soporta archivos de tipo: "geojson, shp, sql  y tif".
+
 El resto de funcionalidades se deben guardar en la caperta "funciones".
