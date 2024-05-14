@@ -10,7 +10,11 @@ docker compose up
 ---
 ### Correr funciones en el contenedor de python:
 ```
-docker exec python_container sh -c 'python scripts/python/Ruta_De_La_Funcion.py > /proc/1/fd/1 2> /proc/1/fd/2'
+docker exec python_container python '/funciones/Ruta_De_La_Funcion.py'
+```
+Para que se imprima el resultado en el log de docker:
+```
+docker exec python_container sh -c 'python /funciones/Ruta_De_La_Funcion.py > /proc/1/fd/1 2> /proc/1/fd/2'
 ```
 ---
 ### El archivo .env debe tener:
