@@ -1,4 +1,6 @@
 .env
 scripts/hash/
+funciones/*
+!funciones/.gitkeep
 data/*
 !data/.gitkeep
