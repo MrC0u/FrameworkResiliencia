@@ -11,7 +11,7 @@ El resto de funcionalidades o scripts se deben guardar en la caperta "funciones"
 ---
 ### Antes de ejecutar
 
-Es necesario crear un archivo con nombre ".env" en el directorio base del respositorio. Este archivo debe tener:
+Es necesario crear un archivo con nombre ".env" en el directorio base del respositorio (donde se encuentra el docker-compose.yml). Este archivo debe tener:
 
 ```
 POSTGRES_PASSWORD=
