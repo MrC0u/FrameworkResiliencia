@@ -8,16 +8,16 @@ def add_data(file_path):
     _, file_extension = os.path.splitext(file_path)
     
     if file_extension.lower() == ".sql":
-        print(f"Processing SQL file: {file_path}")
+        print(f"Procesando archivo SQL: {file_path}")
         insert_sql(file_path)
     elif file_extension.lower() == ".shp":
-        print(f"Processing SHP file: {file_path}")
+        print(f"Procesando archivo SHP: {file_path}")
         insert_shp(file_path)
     elif file_extension.lower() == ".geojson":
-        print(f"Processing GeoJSON file: {file_path}")
+        print(f"Procesando archivo GeoJSON: {file_path}")
         insert_geojson(file_path)
     elif file_extension.lower() == ".tif":
-        print(f"Processing TIF file: {file_path}")
+        print(f"Procesando archivo TIF: {file_path}")
         insert_tif(file_path)
     else:
-        print(f"Unsupported file type: {file_extension}")
+        print(f"Tipo de archivo no soportado: {file_extension}")

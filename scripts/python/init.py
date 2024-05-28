@@ -24,11 +24,13 @@ def generate_current_state():
                 filepath = os.path.join(root, filename)
                 with open(filepath, "rb") as file:
                     # Temporalmente deshabilitado
-                    file_hash = hashlib.md5(file.read()).hexdigest()
+                    # file_hash = hashlib.md5(file.read()).hexdigest()
+                    file_hash = 0
                     current_state_file.write(f"{file_hash} {filepath}\n")
 
 # Función para comparar el estado actual con el registro
 def compare_states():
+    print(f'Buscando archivos nuevos en carpeta /data/.')
     if os.path.isfile(LAST_HASH):
         with open(LAST_HASH) as last_hash:
             previous_state = set(line.strip() for line in last_hash)
@@ -61,4 +63,4 @@ generate_current_state()
 compare_states()
 update_log()
 
-print (f'Init finalizado.')
+print (f'Busqueda de data finalizada.')

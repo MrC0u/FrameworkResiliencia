@@ -81,7 +81,6 @@ def crear_sentencia_create_table(tabla, archivo):
 
 
 def insert_sql(archivo_sql):
-
     tabla = extraer_nombre_tabla(archivo_sql)
     #print(tabla)
     
@@ -98,18 +97,9 @@ def insert_sql(archivo_sql):
         if (create_table == 1):
             print(f'Table [{tabla}] creada con exito.')
 
-        with open(archivo_sql, 'r') as sql_file:
-            sql_commands = sql_file.read().split(');')  # Dividir los comandos
-        for command in sql_commands:
-            if command.strip():  # Ignorar líneas vacías
-                psql(f'{command});')
-        print(f"Datos cargados en tabla [{tabla}].")
-
-    else:
-
-        with open(archivo_sql, 'r') as sql_file:
-            sql_commands = sql_file.read().split(');')  # Dividir los comandos
-        for command in sql_commands:
-            if command.strip():  # Ignorar líneas vacías
-                psql(f'{command});')
-        print(f"Datos cargados en tabla [{tabla}].")
+    with open(archivo_sql, 'r') as sql_file:
+        sql_commands = sql_file.read().split(');')  # Dividir los comandos
+    for command in sql_commands:
+        if command.strip():  # Ignorar líneas vacías
+            psql(f'{command});')
+    print(f"Datos cargados en tabla [{tabla}].")

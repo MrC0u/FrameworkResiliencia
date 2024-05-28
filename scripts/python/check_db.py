@@ -15,14 +15,14 @@ db_params = {
 }
 
 def check_db():
-    # Intentar conectarse hasta que PostgreSQL esté disponible
+    # Intentar conexion a PostgreSQL
     while True:
         try:
             conn = psycopg2.connect(**db_params)
             conn.close()
             break
         except psycopg2.OperationalError:
-            print('PostgreSQL is down - retrying in 2 sec.')
-            time.sleep(2)
+            print('PostgreSQL is down - reintentando en 5 segundos...')
+            time.sleep(5)
     
-    print('PostgreSQL is up - executing init')
+    print('PostgreSQL is up - ejecutando init')

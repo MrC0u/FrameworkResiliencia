@@ -1,6 +1,10 @@
 .env
+
 scripts/hash/
+scripts/python/__pycache__
+
 funciones/*
 !funciones/.gitkeep
+
 data/*
 !data/.gitkeep
