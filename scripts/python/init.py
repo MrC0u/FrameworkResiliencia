@@ -6,26 +6,33 @@ import os
 # Ruta del directorio a monitorear
 MONITOR_DIR = "/data"
 
-# Archivo de registro para almacenar el estado anterior
-LOG_FILE = "/scripts/hash/file_state.log"
-os.makedirs(os.path.dirname(LOG_FILE), exist_ok=True)
+# Archivos de registro
+LAST_HASH = "/scripts/hash/file_state.log"
+CURRENT_HASH = "/scripts/hash/current_state.log"
+
+os.makedirs(os.path.dirname(LAST_HASH), exist_ok=True)
+
+# Función para actualizar el registro con el estado actual
+def update_log():
+    os.system(f"cp {CURRENT_HASH} {LAST_HASH}")
 
 # Función para generar el estado actual de los archivos
 def generate_current_state():
-    with open("/scripts/hash/current_state.log", "w") as current_state_file:
+    with open(CURRENT_HASH, "w") as current_state_file:
         for root, _, files in os.walk(MONITOR_DIR):
             for filename in files:
                 filepath = os.path.join(root, filename)
                 with open(filepath, "rb") as file:
-                    file_hash = hashlib.sha256(file.read()).hexdigest()
+                    # Temporalmente deshabilitado
+                    file_hash = hashlib.md5(file.read()).hexdigest()
                     current_state_file.write(f"{file_hash} {filepath}\n")
 
 # Función para comparar el estado actual con el registro
 def compare_states():
-    if os.path.isfile(LOG_FILE):
-        with open(LOG_FILE) as log_file:
-            previous_state = set(line.strip() for line in log_file)
-        with open("/scripts/hash/current_state.log") as current_state_file:
+    if os.path.isfile(LAST_HASH):
+        with open(LAST_HASH) as last_hash:
+            previous_state = set(line.strip() for line in last_hash)
+        with open(CURRENT_HASH) as current_state_file:
             current_state = set(line.strip() for line in current_state_file)
 
         # Encuentra archivos nuevos o modificados
@@ -50,11 +57,6 @@ def compare_states():
                 add_data(filepath)
 
 check_db()
-
-# Función para actualizar el registro con el estado actual
-def update_log():
-    os.system(f"cp /scripts/hash/current_state.log {LOG_FILE}")
-
 generate_current_state()
 compare_states()
 update_log()
