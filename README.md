@@ -19,6 +19,7 @@ POSTGRES_USER=
 POSTGRES_DB=
 HOST=
 PORT=
+DBPORT=
 ```
 por ejemplo los valores podrian ser:
 ```
@@ -27,6 +28,7 @@ POSTGRES_USER=postgres
 POSTGRES_DB=gis
 HOST=localhost
 PORT=5432
+DBPORT=5433
 ```
 ---
 
