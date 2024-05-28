@@ -12,6 +12,7 @@ services:
       - my_network
     volumes:
       - ./scripts/db/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./scripts/db/config/postgresql.conf:/etc/postgresql/postgresql.conf
       - ./scripts/db/:/db/
     env_file:
       - .env
@@ -19,8 +20,9 @@ services:
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     ports:
-      - ${PORT}:${PORT}
-    command: ["postgres", "-c", "listen_addresses=*", "-c", "port=${PORT}"]
+      - 5433:${PORT}
+    command: ["postgres", "-c", "config_file=/etc/postgresql/postgresql.conf", "-c", "listen_addresses=*", "-c", "port=${PORT}"]
+
 
   python_container:
     container_name: 'python_container'
