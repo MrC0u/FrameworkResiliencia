@@ -20,7 +20,7 @@ services:
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     ports:
-      - 5433:${PORT}
+      - ${DBPORT}:${PORT}
     command: ["postgres", "-c", "config_file=/etc/postgresql/postgresql.conf", "-c", "listen_addresses=*", "-c", "port=${PORT}"]
 
 
