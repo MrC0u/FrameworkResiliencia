@@ -15,4 +15,5 @@ FILENAME=$(basename "$DOWNLOAD_URL")
 wget --load-cookies /tmp/cookies.txt -O "$FILENAME" "$DOWNLOAD_URL"
 rm -f /tmp/cookies.txt
 
-echo "Archivo guardado en:  $(pwd)/}"$FILENAME"
+echo "Archivo guardado en: $(pwd)/$FILENAME"
+
