@@ -2,3 +2,4 @@ scripts/hash/
 scripts/python/__pycache__
 data/*
 !data/.gitkeep
+!data/practicaElectiva/topology
