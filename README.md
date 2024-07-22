@@ -63,6 +63,6 @@ docker exec python_container sh -c 'python /funciones/Ruta_De_La_Funcion.py > /p
 
 
 
-Cualquier error notifiquenmelo pls 🥺. \
+Cualquier error notifiquenmelo. \
 Aun estoy implementando/arreglando las funcionalidades.
 
