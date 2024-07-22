@@ -12,23 +12,23 @@ CURRENT_HASH = "/scripts/hash/current_state.log"
 
 os.makedirs(os.path.dirname(LAST_HASH), exist_ok=True)
 
-# Función para actualizar el registro con el estado actual
+# Actualizar el registro
 def update_log():
     os.system(f"cp {CURRENT_HASH} {LAST_HASH}")
 
-# Función para generar el estado actual de los archivos
+# Generar el estado actual de los archivos
 def generate_current_state():
     with open(CURRENT_HASH, "w") as current_state_file:
         for root, _, files in os.walk(MONITOR_DIR):
             for filename in files:
                 filepath = os.path.join(root, filename)
                 with open(filepath, "rb") as file:
-                    # Temporalmente deshabilitado
+                    # Temporalmente deshabilitado -- Verificar si los archivos han cambiado (en archivos pesados puede tomar mucho)
                     # file_hash = hashlib.md5(file.read()).hexdigest()
                     file_hash = 0
                     current_state_file.write(f"{file_hash} {filepath}\n")
 
-# Función para comparar el estado actual con el registro
+# Comparar el estado actual con el registro
 def compare_states():
     print(f'Buscando archivos nuevos en carpeta /data/.')
     if os.path.isfile(LAST_HASH):

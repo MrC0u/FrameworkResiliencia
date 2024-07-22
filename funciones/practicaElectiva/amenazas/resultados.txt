@@ -1,0 +1,8 @@
+- GNA, se crearon los nodos en las nuevas posiciones, ojo con la de chile.
+- GNA_ENLACE los enlaces se hicieron entre los mismos nodos nuevos, no con los de la topologia (pudo ser error mio).
+- MIN_CUA_ENLACE Solo funcionó para la primera topologia, y solo se conectó a un nodo, el resto "No nodes found with the specified IDs.".
+- TEC funciono el enlace solo para uno, los nodos con todos.
+Nuevo nodo agregado en latitud: -33.460440871193725 longitud: -70.64394443820935 con ID: 9
+No se encontraron nodos cercanos para el grupo con centroid en -33.460440871193725, -70.64394443820935
+Nuevo nodo agregado en latitud: -33.46013246813419 longitud: -70.64880985226856 con ID: 10
+No se encontraron nodos cercanos para el grupo con centroid en -33.46013246813419, -70.64880985226856
