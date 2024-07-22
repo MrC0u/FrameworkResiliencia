@@ -30,12 +30,14 @@ HOST=localhost
 PORT=5432
 DBPORT=5433
 ```
+
 En este ejemplo, para visualizar los datos a traves de QGIS y conectarse a la base de datos se debe usar el puerto 5433.
+
 ---
 
 ### Correr contenedor
 
-Se utiliza el comando:
+Desde la misma carpeta donde se encuentra el archivo docker-compose, se utiliza el comando:
 ```
 docker compose up
 ```
