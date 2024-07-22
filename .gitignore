@@ -2,4 +2,7 @@ scripts/hash/
 scripts/python/__pycache__
 data/*
 !data/.gitkeep
-!data/practicaElectiva/topology
+!data/practicaElectiva/
+data/practicaElectiva/*
+!data/practicaElectiva/topology/
+!data/practicaElectiva/topology/*
