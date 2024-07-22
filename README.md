@@ -4,7 +4,7 @@
 
 ### Como guardar data / scripts
 La Metadata / Amenazas / Topologias se deben guardar en la carpeta "data" (se pueden crear subcarpetas para organizar mejor el contenido).
-Hasta ahora soporta archivos de tipo: "geojson, shp, sql  y tif". Automaticamente deberia crear las tablas y el contenido de estos, con solo almacenar los archivos en esta carpeta.
+Hasta ahora soporta archivos de tipo: "geojson, shp, sql y tif". Automaticamente deberia crear las tablas y el contenido de estos, con solo almacenar los archivos en esta carpeta.
 
 El resto de funcionalidades o scripts se deben guardar en la caperta "funciones" (tambien se pueden crear subcarpetas para organizar mejor el contenido).
 
@@ -30,6 +30,7 @@ HOST=localhost
 PORT=5432
 DBPORT=5433
 ```
+En este ejemplo, para visualizar los datos a traves de QGIS y conectarse a la base de datos se debe usar el puerto 5433.
 ---
 
 ### Correr contenedor
@@ -41,19 +42,14 @@ docker compose up
 ___
 ### Entrar a la base de datos
 
-Primero se debe obtener el ID del contenedor de docker para el nombre postgis_container, para esto usar:
-```
-docker ps -a
-```
-
 Luego se entra al contenedor y la base de datos con:
 ```
-docker exec -it ID_CONTENEDOR psql -h localhost -U postgres -d gis
+docker exec -it postgis_container psql -h localhost -U postgres -d gis
 ```
 
 Del mismo modo te puedes conectar al contenedor de python:
 ```
-docker exec -it ID_CONTENEDOR bin/bash
+docker exec -it python_container bin/bash
 ```
 ---
 ### Correr funciones en el contenedor de python (sin entrar al contendor):
